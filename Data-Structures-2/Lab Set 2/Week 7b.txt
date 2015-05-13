@@ -1,0 +1,49 @@
+TITLE Integer Summation Program		     (Sum2.asm)
+
+; This program 
+
+INCLUDE Irvine32.inc
+
+.data
+
+.code 
+
+main PROC
+
+mov al,1
+mov bl,1
+call XorSimulation
+
+mov al,1
+mov bl,0
+call XorSimulation
+
+mov al,0
+mov bl,1
+call XorSimulation
+
+mov al,0
+mov bl,0
+call XorSimulation
+
+main ENDP
+
+XorSimulation PROC USES ax bx cx 
+
+cmp al, bl  ; al to bl
+jz l1      ; if 0 jump to l1
+jnz l2      ; if it's not 0, jump to l2
+
+l1: mov cx, 0 
+call dumpregs
+ret
+
+l2: mov cx, 1
+call dumpregs
+ret
+
+XorSimulation ENDP
+
+END main
+
+

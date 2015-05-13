@@ -1,0 +1,87 @@
+TITLE Question8 assignment1  (main.asm)
+
+; Description:
+; This progam adds and subtracts 32-bit unsigned
+; integers and stores the sum in a variable
+; Revision date:
+
+INCLUDE Irvine32.inc
+
+.data
+.data
+              source    BYTE  "This is the source string", 0
+              target      BYTE  SIZEOF source DUP ('#')
+.code
+main PROC
+              mov  esi, OFFSET source                ; offset of variable
+              mov  ebx, 1                                                   ; byte format
+              mov  ecx, SIZEOF source                             ; counter
+              mov  edx,offset target
+              call DumpMem                    ; require the initial values of esi, ebx, ecxl1:
+L1:
+              mov al,[esi]
+              mov [edx+ecx],al
+              inc esi
+              loop L1
+              mov  esi, OFFSET target                  ; offset of variable
+              mov  ebx,1                                                    ; byte format
+              mov  ecx, SIZEOF target                  ; counter
+              call   DumpMem                ; require the initial values of esi, ebx, ecx
+              exit
+main ENDP
+END main
+END main
+
+
+
+said he got points
+
+TITLE Question8 assignment1  (main.asm)
+
+; Description:
+; This progam adds and subtracts 32-bit unsigned
+; integers and stores the sum in a variable
+; Revision date:
+
+INCLUDE Irvine32.inc
+
+.data
+source BYTE " This is the source string", 0 
+target BYTE SIZEOF source DUP('#') 
+
+.code
+main PROC
+
+mov esi, (OFFSET source) + (SIZEOF source) - (1)
+ mov edi, OFFSET target
+ mov ecx, SIZEOF source
+
+L1: mov al, [esi]
+ mov [edi], al
+ dec esi              ; pointer to source string
+ inc edi              ; pointer to target string
+ loop L1
+ 
+ mov esi, OFFSET target     ; offset of variable
+ mov ebx, 1   ; byte format
+ mov ecx, SIZEOF target-1 ; counter
+ call Dumpmem
+ 
+ exit
+
+main ENDP
+END main
+
+
+
+
+
+
+
+
+
+
+
+
+
+

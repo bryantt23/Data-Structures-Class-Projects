@@ -1,0 +1,10 @@
+ LAX    Los_Angeles  
+ SFO    San_Francisco       
+ DFW    Denver               
+ ORD    Chicago             
+ BOS    Boston              
+ JFK    New_York            
+ MIA    Miami                
+ MSY    New_Orlean           
+ SEA    Seatle               
+ LAS    Las_Vegas            

@@ -1,0 +1,69 @@
+TITLE Integer Summation Program		     (Sum2.asm)
+
+; This program prompts the user for three integers, 
+; stores them in an array, calculates the sum of the
+; array, and displays the sum.
+
+INCLUDE Irvine32.inc
+
+.data
+
+.code 
+main PROC
+
+mov al,00001111b
+test al,00000010b ; a. CF=0 ZF=0 SF=0
+call dumpregs
+mov al,00000110b
+cmp al,00000101b ; b. CF=0 ZF=0 SF=0
+call dumpregs
+mov al,00000101b
+cmp al,00000111b ; c. CF=1 ZF=1 SF=0
+call dumpregs
+
+
+;When AX equals 5 and is compared to 10, the Carry flag is set because subtracting
+;10 from 5 requires a borrow:
+mov ax,5
+cmp ax,10  ; ZF = 0 and CF = 1, SF = 1
+call dumpregs
+
+;Comparing 1000 to 1000 sets the Zero flag because subtracting the source from the destination
+;produces zero:
+mov ax,1000
+mov cx,1000
+cmp cx,ax  ; ZF = 1 and CF = 0
+call dumpregs
+
+;Comparing 105 to 0 clears both the Zero and Carry flags because subtracting 0 from 105 would
+;generate a positive, nonzero value.
+mov si,105
+cmp si,0  ; ZF = 0 and CF = 0
+call dumpregs
+
+;When AX equals -15 and is compared to -10, the Carry flag is set because subtracting
+;-15 - -10 = -5
+mov eax,-15
+cmp eax,-10  ; ZF = 0 and CF = 1, SF = 1
+call dumpregs
+
+
+;When AX equals -15 and is compared to -15, the Carry flag is set because subtracting
+;-15 - -15 = -0
+mov eax,-15
+cmp eax,-15  ; ZF = 1 and CF = 0, SF = 0
+call dumpregs
+
+
+
+
+	exit
+main ENDP
+
+
+
+
+
+END main
+
+

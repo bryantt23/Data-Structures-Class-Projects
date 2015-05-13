@@ -1,0 +1,54 @@
+TITLE Copying a String                  (CopyStr.asm)
+
+; This program copies a string.
+
+INCLUDE Irvine32.inc
+
+.data
+source  BYTE  "This is the source string",0
+;target  BYTE  SIZEOF source DUP(0),0 ; from original
+target BYTE SIZEOF source DUP('#')
+
+
+.code
+main PROC
+
+;	mov  esi,0			; index register
+	mov  esi,SIZEOF source 	; 
+
+;	sub  esi,1 	; 
+;	mov  index, esi 	; 
+
+	mov  ecx,SIZEOF source	; loop counter
+
+COMMENT !
+; original copying string
+	mov  al,source[esi]		; get a character from source
+	mov  target[esi],al		; store it in the target
+	inc  esi				; move to next character
+	loop L1				; repeat for entire string
+	!
+	
+	sub  esi,1 	; 
+
+L1:
+;	mov  al,source[esi]		; get a character from source
+	mov  al,source[esi]		; get a character from source
+	mov  target[esi],al		; store it in the target
+	dec  esi				; move to next character
+;	inc  esi				; move to next character
+	loop L1				; repeat for entire string
+
+;	loop L1				; repeat for entire string
+
+	mov esi,OFFSET target ; offset of variable
+	mov ebx,1 ; byte format
+	mov ecx,SIZEOF target ; counter
+	call DumpMem
+
+;	call dumpregs;
+;	call	DumpMem			; display memory
+
+	exit
+main ENDP
+END main

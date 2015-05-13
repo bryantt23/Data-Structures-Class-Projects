@@ -1,0 +1,10 @@
+LAX    Los_Angeles         120
+SFO    San_Francisco       120
+DFW    Denver               90
+ORD    Chicago             120
+BOS    Boston              120
+JFK    New_York            150
+MIA    Miami                90
+MSY    New_Orlean           60
+SEA    Seatle               90
+LAS    Las_Vegas            90
